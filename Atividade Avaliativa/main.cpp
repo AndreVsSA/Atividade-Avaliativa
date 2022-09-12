@@ -4,11 +4,11 @@ using std::cin;
 using std::endl;
 #include "aluno.h"
 #include "ficharioaluno.h"
-#define TAM =100;
+#define TAM =100
 
 int main(){
         Aluno alunos[TAM]; 
-        FicharioAluno ficharioAluno(alunos);
+        FicharioAluno ficharioAluno(alunos,TAM);
     
         int operacaoGeral, opCadastroAluno, opCadastroProfessor, opCadastroTurma, opCadastroEnturmacao;
         do {
