@@ -5,9 +5,10 @@ using std::endl;
 #include "ficharioaluno.h"
 #include "aluno.h"
 
-FicharioAluno::FicharioAluno(Aluno * _alunos){
-        alunos = _alunos;
-}
+FicharioAluno::FicharioAluno(Aluno  *alunos, int tamanhoFicharioAlunos){
+        this->alunos = alunos;
+        this->tamanhoFicharioAlunos = tamanhoFicharioAlunos;
+        this->qtdeAlunosFichario = 0;
 
 void FicharioAluno::cadastrar(){
         
