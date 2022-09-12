@@ -49,7 +49,7 @@ void FicharioAluno::cadastrar(){
         cout<<"Qual posicao deseja alterar?"<<endl;
         cin>>pos;
 
-        if(pos<0||pos>40)
+        if(pos<0||pos>tamanhoFicharioAlunos)
         {
             cout<<"Cpf atual: "<<alunos[pos].getCpf()<<endl;
             cout<<"Digite o novo cpf: ";
