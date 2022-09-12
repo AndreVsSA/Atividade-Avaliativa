@@ -10,13 +10,13 @@ using namespace std;
 
     }
 
-    Aluno::Aluno(string _matricula, string _cpf, string _nome, string _telefone, string _email)
+    Aluno::Aluno(string matricula, string cpf, string nome, string telefone, string email)
     {
-        matricula = _matricula;
-        cpf = _matricula;
-        nome = _matricula;
-        telefone = _matricula;
-        email = _matricula; 
+        this->matricula = matricula;
+        this->cpf = cpf;
+        this->nome = nome;
+        this->telefone = telefone;
+        this->email = email; 
     }
 
     string Aluno::getMatricula()const
@@ -24,9 +24,9 @@ using namespace std;
     return matricula;
     }
 
-    void Aluno::setMatricula(string _matricula)
+    void Aluno::setMatricula(string matricula)
     {
-        matricula = _matricula;
+        this->matricula = matricula;
     }
         void Aluno::toString(){
             cout << " === ALUNO ==== " << endl;
