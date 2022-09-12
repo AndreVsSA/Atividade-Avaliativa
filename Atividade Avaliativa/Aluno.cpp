@@ -24,7 +24,7 @@ using namespace std;
     return matricula;
     }
 
-    void Aluno::setMatricula(string matricula)
+    void Aluno::setMatricula(const string matricula)
     {
         this->matricula = matricula;
     }
