@@ -91,10 +91,10 @@ void FicharioAluno::cadastrar(){
             cin>>res;
             if(res==1)
             {
-                delete[] aaluno;//não consegui encontrar uma função pra deletar um componente de um vetor
+                alunos[pos].setMatricula("Apagado");
             }else
             {
-                cout<<"Eclusao nao efetuada"<<endl;
+                cout<<"Exclusao nao efetuada"<<endl;
             }
 
         }else
