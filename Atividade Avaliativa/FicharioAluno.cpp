@@ -14,15 +14,9 @@ void FicharioAluno::cadastrar(){
         
     string nome, telefone, matricula, cpf, email;
 
-        int contador = 0;
+        
 
-        Aluno *aaluno;
-
-        while ((aaluno = &alunos[contador])==nullptr){
-            contador++;
-        }
-
-        if(contador < 40)
+        if(qtdeAlunosFichario < tamanhoFicharioAlunos)
         {
                 cout << " === Cadastrar ALUNO ==== " << endl;
                 cout << "\nMatrícula: ";
@@ -38,6 +32,8 @@ void FicharioAluno::cadastrar(){
 
                 Aluno aluno(nome, telefone, matricula, cpf, email);
                 alunos[contador] = aluno;
+                qtdeAlunosFichario++;
+
         }   else 
             {
                 cout << "Cadastros esgotados!";
@@ -81,14 +77,14 @@ void FicharioAluno::cadastrar(){
     void FicharioAluno::excluir()
     {
         int pos, res;
-        Aluno *aaluno;
+        
         
         cout<<"--==EXCLUIR ALUNO==--"<<endl;
         cout<<"Qual posicao deseja excluir?"<<endl;
         cin>>pos;
 
-        aaluno=&alunos[pos];
-        if(pos<0||pos>40)
+        
+        if(pos<0||pos>tamanhoFicharioAlunos)
         {
             alunos[pos].toString();
             cout<<"\nConfirmar a exclusao? (1-sim) e (2-não)"<<endl;
@@ -114,7 +110,7 @@ void FicharioAluno::cadastrar(){
         cout<<"Qual posicao deseja consultar?"<<endl;
         cin>>pos;
 
-        if(pos<0||pos>39)
+        if(pos<0||pos>tamanhoFicharioAlunos)
         {
             cout<<"Posicao invalida"<<endl;
 
