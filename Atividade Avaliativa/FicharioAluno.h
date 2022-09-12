@@ -13,6 +13,9 @@ using std::string;
  class FicharioAluno{
    private:
         Aluno * alunos; 
+        int qtdeAlunosFichario;
+        int tamanhoFicharioAlunos;
+
    
    public:
         FicharioAluno(Aluno *); // ou FicharioAluno(Aluno *)
