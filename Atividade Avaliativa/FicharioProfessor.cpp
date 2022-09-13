@@ -6,23 +6,17 @@ using std::endl;
 #include "ficharioprofessor.h"
 #include "professor.h"
 
-FicharioProfessor::FicharioProfessor(Professor * _professores){
-        professores = _professores;
+FicharioProfessor::FicharioProfessor(Professor * professores, int tamanhoFicharioAlunos){
+        this->professores = professores;
+        this->tamanhoFicharioProfessor = tamanhoFicharioProfessor;
+        this->qtdeProfessoresFichario = 0;
 }
 
 void FicharioProfessor::cadastrar(){
         
     string nome, telefone, registro, cpf, email;
 
-        int contador = 0;
-
-        Professor *pprofessor;
-
-        while ((pprofessor = &professores[contador])==nullptr){
-            contador++;
-        }
-
-        if(contador < 40)
+        if(qtdeProfessoresFichario < tamanhoFicharioProfessor)
         {
                 cout << " === Cadastrar Professor ==== " << endl;
                 cout << "\nRegistro: ";
@@ -37,7 +31,8 @@ void FicharioProfessor::cadastrar(){
                 cin >> email;
 
                 Professor Professor(nome, telefone, registro, cpf, email);
-                professores[contador] = Professor;
+                professores[qtdeProfessoresFichario] = Professor;
+                
         }   else 
             {
                 cout << "Cadastros esgotados!";
@@ -53,7 +48,7 @@ void FicharioProfessor::cadastrar(){
         cout<<"Qual posicao deseja alterar?"<<endl;
         cin>>pos;
 
-        if(pos<0||pos>40)
+        if(pos<0||pos>qtdeProfessoresFichario)
         {
             cout<<"Cpf atual: "<<professores[pos].getCpf()<<endl;
             cout<<"Digite o novo cpf: ";
@@ -88,22 +83,22 @@ void FicharioProfessor::cadastrar(){
         cin>>pos;
 
         pprofessor=&professores[pos];
-        if(pos<0||pos>40)
+        if(pos<0||pos>qtdeProfessoresFichario)
+        {
+            cout<<"Posicao invalida"<<endl;
+        }else
         {
             professores[pos].toString();
             cout<<"\nConfirmar a exclusao? (1-sim) e (2-não)"<<endl;
             cin>>res;
             if(res==1)
             {
-                delete[] pprofessor;//não consegui encontrar uma função pra deletar um componente de um vetor
+                professores[pos].setRegistro("Apagado");
             }else
             {
                 cout<<"Eclusao nao efetuada"<<endl;
             }
 
-        }else
-        {
-            cout<<"Posicao invalida"<<endl;
         }
     };
     void FicharioProfessor::consultar()
@@ -114,7 +109,7 @@ void FicharioProfessor::cadastrar(){
         cout<<"Qual posicao deseja consultar?"<<endl;
         cin>>pos;
 
-        if(pos<0||pos>39)
+        if(pos<0||pos>qtdeProfessoresFichario)
         {
             cout<<"Posicao invalida"<<endl;
 
@@ -130,12 +125,10 @@ void FicharioProfessor::cadastrar(){
         
         
         
-        for(int pos=0;pos<40;pos++)
+        for(int pos=0;pos<qtdeProfessoresFichario;pos++)
         {
-            if ((&professores[pos]) == nullptr)
+            if (professores[pos].registro != "Apagado")
             {
-                break;;
-            }else{
                 professores[pos].toString();
             }
                 
