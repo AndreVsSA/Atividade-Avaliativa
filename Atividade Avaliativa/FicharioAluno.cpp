@@ -86,7 +86,11 @@ void FicharioAluno::cadastrar(){
         
         if(pos<0||pos>tamanhoFicharioAlunos)
         {
-            alunos[pos].toString();
+           cout<<"Posicao invalida"<<endl;
+
+        }else
+        {
+             alunos[pos].toString();
             cout<<"\nConfirmar a exclusao? (1-sim) e (2-não)"<<endl;
             cin>>res;
             if(res==1)
@@ -96,10 +100,6 @@ void FicharioAluno::cadastrar(){
             {
                 cout<<"Exclusao nao efetuada"<<endl;
             }
-
-        }else
-        {
-            cout<<"Posicao invalida"<<endl;
         }
     };
     void FicharioAluno::consultar()
