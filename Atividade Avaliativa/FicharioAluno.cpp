@@ -128,10 +128,9 @@ void FicharioAluno::cadastrar(){
         
         for(int pos=0;pos<40;pos++)
         {
-            if ((&alunos[pos]) == nullptr)
+            if (alunos[pos].matricula != "Apagado")
             {
-                break;;
-            }else{
+            
                 alunos[pos].toString();
             }
                 
