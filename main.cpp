@@ -6,13 +6,17 @@ using std::endl;
 #include "FicharioAluno.h"
 #include "Professor.h"
 #include "FicharioProfessor.h"
+#include "Turma.h"
+#include "FicharioTurma.h"
 #define TAM 100
 
 int main(){
         Aluno alunos[TAM]; 
         Professor professores[TAM];
+        Turma turmas[TAM];
         FicharioAluno ficharioAluno(alunos,TAM);
         FicharioProfessor ficharioProfessor(professores,TAM);
+        FicharioTurma ficharioTurma(turmas,TAM);
     
         int operacaoGeral, opCadastroAluno, opCadastroProfessor, opCadastroTurma, opCadastroEnturmacao;
         do {
@@ -100,7 +104,7 @@ int main(){
                         }
                     } while (opCadastroProfessor != 0);
                     break; // fim do case professor
-                /*case 3: // cadastro de turma
+                case 3: // cadastro de turma
                     do {
                         cout << " === TURMAS === " << endl;
                         cout << "1 - Cadastrar Turma " << endl;
@@ -132,9 +136,9 @@ int main(){
                                     cout << "Opção inválida." << endl;
                                 }
                         }
-                    } while (opCadastroTurma != 0 << endl;
+                    } while (opCadastroTurma != 0);
                     break; // fim do case turma
-                case 4: // cadastro de enturmação
+                /*case 4: // cadastro de enturmação
                     do {
                         cout << " === ENTURMACAO === " << endl;
                         cout << "1 - Cadastrar Enturmação " << endl;
@@ -143,7 +147,8 @@ int main(){
                         cout << "5 - Relatório do Enturmação " << endl;
                         cout << "0 - Voltar ao menu principal" << endl;
                         cout << "Opção: ";
-                        cin >> opCadastroEnturmacao;
+                        cin >> opCadastroEnturmacao;1
+
                         switch (opCadastroEnturmacao) {
                             case 1:
                                 ficharioEnturmacao.cadastrar();

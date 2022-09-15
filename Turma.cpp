@@ -13,17 +13,17 @@ using namespace std;
       this->periodo=periodo;
       this->codigo=codigo;
     }
-    void Turma::getMateria()const
+    string Turma::getMateria()const
     {
-      cout<<materia;
+      return materia;
     }
-    void Turma::getPeriodo()const
+    string Turma::getPeriodo()const
     {
-      cout<<periodo;
+      return periodo;
     }
-    void Turma::getCodigo()const
+    string Turma::getCodigo()const
     {
-      cout<<codigo;
+      return codigo;
     }
     void Turma::setMateria(const string materia)
     {

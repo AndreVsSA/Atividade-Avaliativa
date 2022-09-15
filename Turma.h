@@ -14,9 +14,9 @@ public:
 
     Turma();
     Turma(string,string,string);
-    void getMateria()const;
-    void getPeriodo()const;
-    void getCodigo()const;
+    string getMateria()const;
+    string getPeriodo()const;
+    string getCodigo()const;
     void setMateria(const string);
     void setPeriodo(const string);
     void setCodigo(const string);

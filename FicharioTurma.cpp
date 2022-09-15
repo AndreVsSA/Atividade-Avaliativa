@@ -54,7 +54,7 @@ void FicharioTurma::cadastrar()
 
         if(pos<0||pos>tamanhoFicharioTurmas)
         {
-            cout<<"Codigo atual: " <<turmas[pos].getCodigo()<<endl;
+            cout<<"Codigo atual: "<<turmas[pos].getCodigo()<<endl;
             cout<<"Digite o novo codigo ";
             cin>>codigo;
             turmas[pos].setCodigo(codigo);
