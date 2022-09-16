@@ -2,6 +2,8 @@
 #define FICHARIOALUNO_H
 #include <iostream>
 #include <string>
+#include <vector>
+using std::vector;
 using std::cout;
 using std::cin;
 using std::endl;
@@ -12,14 +14,13 @@ using std::string;
 // não permitir exclusão de alunos vinculados a turmas
  class FicharioAluno{
    private:
-        Aluno * alunos; 
-        int qtdeAlunosFichario;
-        int tamanhoFicharioAlunos;
-        static int index;
-
+        
+        
+        
+        vector <Aluno> alunos;
    
    public:
-        FicharioAluno(Aluno *, int); // ou FicharioAluno(Aluno *)
+          FicharioAluno(vector <Aluno>);// ou FicharioAluno(Aluno *)
         void cadastrar();
         void alterar();
         void excluir();

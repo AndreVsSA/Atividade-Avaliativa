@@ -2,6 +2,8 @@
 #define FICHARIOPROFESSOR_H
 #include <iostream>
 #include <string>
+#include <vector>
+using std::vector;
 using std::cout;
 using std::cin;
 using std::endl;
@@ -10,13 +12,11 @@ using std::string;
 
  class FicharioProfessor{
    private:
-        Professor * professores;
-        int tamanhoFicharioProfessor;
-        int qtdeProfessoresFichario;
+       vector <Professor> professores;
    
    public:
         FicharioProfessor();
-        FicharioProfessor(Professor *,int); // ou FicharioProfessor(Professor *)
+        FicharioProfessor(vector <Professor>); // ou FicharioProfessor(Professor *)
         void cadastrar();
         void alterar();
         void excluir();

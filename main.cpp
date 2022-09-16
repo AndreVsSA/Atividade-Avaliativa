@@ -1,4 +1,8 @@
 #include <iostream>
+#include <vector>
+//#include<bits/stdc++.h>
+using std::vector;
+using std::find;
 using std::cout;
 using std::cin;
 using std::endl;
@@ -9,13 +13,15 @@ using std::endl;
 #include "Turma.h"
 #include "FicharioTurma.h"
 #define TAM 100
+int Aluno::indice=0;
+int Professor::indice=0;
 
 int main(){
-        Aluno alunos[TAM]; 
-        Professor professores[TAM];
+        vector<Aluno> alunos; 
+        vector<Professor> professores;
         Turma turmas[TAM];
-        FicharioAluno ficharioAluno(alunos,TAM);
-        FicharioProfessor ficharioProfessor(professores,TAM);
+        FicharioAluno ficharioAluno(alunos);
+        FicharioProfessor ficharioProfessor(professores);
         FicharioTurma ficharioTurma(turmas,TAM);
     
         int operacaoGeral, opCadastroAluno, opCadastroProfessor, opCadastroTurma, opCadastroEnturmacao;

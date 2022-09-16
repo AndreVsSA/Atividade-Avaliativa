@@ -1,23 +1,23 @@
 // não permitir exclusão de professores vinculados a turmas
 #include <iostream>
+#include <vector>
+#include<bits/stdc++.h>
+using std::vector;
 using std::cout;
 using std::cin;
 using std::endl;
 #include "FicharioProfessor.h"
 #include "Professor.h"
 
-FicharioProfessor::FicharioProfessor(Professor * professores, int tamanhoFicharioProfessor){
+FicharioProfessor::FicharioProfessor(vector <Professor> professores){
         this->professores = professores;
-        this->tamanhoFicharioProfessor = tamanhoFicharioProfessor;
-        this->qtdeProfessoresFichario = 0;
 }
 
 void FicharioProfessor::cadastrar(){
         
     string nome, telefone, registro, cpf, email;
 
-        if(qtdeProfessoresFichario < tamanhoFicharioProfessor)
-        {
+        
                 cout << " === Cadastrar Professor ==== " << endl;
                 cout << "\nRegistro: ";
                 cin >> registro;
@@ -30,13 +30,17 @@ void FicharioProfessor::cadastrar(){
                 cout << "\nEmail: ";
                 cin >> email;
 
-                Professor Professor(nome, telefone, registro, cpf, email);
-                professores[qtdeProfessoresFichario] = Professor;
+                Professor professor(nome, telefone, registro, cpf, email);
+                auto it = find(professores.begin(), professores.end(), professor);
+                  if(it != professores.end())
+                  {
+                      cout << "Aluno já cadastrado!"<< endl;
+                  }else
+                  {
+                      professores.push_back(professor);
+                  }
                 
-        }   else 
-            {
-                cout << "Cadastros esgotados!";
-            }
+        
 
 }
     void FicharioProfessor::alterar()
@@ -48,7 +52,7 @@ void FicharioProfessor::cadastrar(){
         cout<<"Qual posicao deseja alterar?"<<endl;
         cin>>pos;
 
-        if(pos<0||pos>qtdeProfessoresFichario)
+        if(professores[pos].getCodigo()!=0)
         {
             cout<<"Cpf atual: "<<professores[pos].getCpf()<<endl;
             cout<<"Digite o novo cpf: ";
@@ -76,14 +80,14 @@ void FicharioProfessor::cadastrar(){
     void FicharioProfessor::excluir()
     {
         int pos, res;
-        Professor *pprofessor;
+        
         
         cout<<"--==EXCLUIR Professor==--"<<endl;
         cout<<"Qual posicao deseja excluir?"<<endl;
         cin>>pos;
 
-        pprofessor=&professores[pos];
-        if(pos<0||pos>qtdeProfessoresFichario)
+        
+        if(pos>professores.size())
         {
             cout<<"Posicao invalida"<<endl;
         }else
@@ -93,7 +97,7 @@ void FicharioProfessor::cadastrar(){
             cin>>res;
             if(res==1)
             {
-                professores[pos].setRegistro("Apagado");
+                professores.erase(professores.begin()+pos);
             }else
             {
                 cout<<"Eclusao nao efetuada"<<endl;
@@ -109,7 +113,7 @@ void FicharioProfessor::cadastrar(){
         cout<<"Qual posicao deseja consultar?"<<endl;
         cin>>pos;
 
-        if(pos<0||pos>qtdeProfessoresFichario)
+        if(pos>professores.size())
         {
             cout<<"Posicao invalida"<<endl;
 
@@ -125,12 +129,11 @@ void FicharioProfessor::cadastrar(){
         
         
         
-        for(int pos=0;pos<qtdeProfessoresFichario;pos++)
+        for(int pos=0;pos<professores.size();pos++)
         {
-            if (professores[pos].getRegistro() != "Apagado")
-            {
+            
                 professores[pos].toString();
-            }
+            
                 
         }
         

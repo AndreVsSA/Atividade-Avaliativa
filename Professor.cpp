@@ -9,13 +9,16 @@ using namespace std;
     }
      Professor::Professor(string registro, string cpf, string nome, string telefone, string email)
     {
+        ++indice;
+        this->codigo=indice;
         this->registro = registro;
         this->cpf = cpf;
         this->nome = nome;
         this->telefone = telefone;
         this->email = email; 
     }
-    void Professor::toString(){
+    void Professor::toString()
+    {
             cout << " === PROFESSOR ==== " << endl;
             cout << "Registro: "<<registro<<endl;
             cout << "CPF: "<<cpf<<endl;
@@ -31,6 +34,13 @@ using namespace std;
     void Professor::setRegistro(const string registro)
     {
         this->registro = registro;
+    }
+    bool Professor::operator==(const Professor& o) const {
+      return cpf == o.cpf;
+    }
+    int Professor::getCodigo()const
+    {
+      return codigo;
     }
 
 

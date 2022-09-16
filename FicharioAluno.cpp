@@ -1,15 +1,18 @@
 #include <iostream>
+#include <vector>
+#include<bits/stdc++.h>
+using std::vector;
+using std::find;
 using std::cout;
 using std::cin;
 using std::endl;
 #include "FicharioAluno.h"
 #include "Aluno.h"
 
-FicharioAluno::FicharioAluno(Aluno  *alunos, int tamanhoFicharioAlunos){
+FicharioAluno::FicharioAluno(vector <Aluno> alunos){
         this->alunos = alunos;
-        this->tamanhoFicharioAlunos = tamanhoFicharioAlunos;
-        this->qtdeAlunosFichario = 0;
-  }
+        
+}
 
 void FicharioAluno::cadastrar()
 {
@@ -19,8 +22,6 @@ void FicharioAluno::cadastrar()
 
         
 
-        if(qtdeAlunosFichario < tamanhoFicharioAlunos)
-        {
                 cout << " === Cadastrar ALUNO ==== " << endl;
                 cout << "\nMatrícula: ";
                 cin >> matricula;
@@ -34,15 +35,18 @@ void FicharioAluno::cadastrar()
                 cin >> email;
 
                 Aluno aluno(nome, telefone, matricula, cpf, email);
-                alunos[qtdeAlunosFichario] = aluno;
-                qtdeAlunosFichario++;
+                auto it = find(alunos.begin(), alunos.end(), aluno);
+                  if(it != alunos.end())
+                  {
+                      cout << "Aluno já cadastrado!"<< endl;
+                  }else
+                  {
+                      alunos.push_back(aluno);
+                  }
                 
                 
 
-        }   else 
-            {
-                cout << "Cadastros esgotados!";
-            }
+          
 
 }
     void FicharioAluno::alterar()
@@ -54,20 +58,23 @@ void FicharioAluno::cadastrar()
         cout<<"Qual posicao deseja alterar?"<<endl;
         cin>>pos;
 
-        if(pos<0||pos>tamanhoFicharioAlunos)
+        if(alunos[pos].getCodigo()!=0)
         {
             cout<<"Cpf atual: "<<alunos[pos].getCpf()<<endl;
             cout<<"Digite o novo cpf: ";
             cin>>cpf;
             alunos[pos].setCpf(cpf);
+          
             cout<<"\n\nNome atual: "<<alunos[pos].getNome()<<endl;
             cout<<"Digite o novo nome: ";
             cin>>nome;
             alunos[pos].setNome(nome);
+          
             cout<<"\n\nTelefone atual: "<<alunos[pos].getTelefone()<<endl;
             cout<<"Digite o novo telefone: ";
             cin>>telefone;
             alunos[pos].setTelefone(telefone);
+          
             cout<<"\n\nEndereco e email atual: "<<alunos[pos].getEmail()<<endl;
             cout<<"Digite o novo email: ";
             cin>>email;
@@ -89,7 +96,7 @@ void FicharioAluno::cadastrar()
         cin>>pos;
 
         
-        if(pos<0||pos>tamanhoFicharioAlunos)
+        if(pos>alunos.size())
         {
            cout<<"Posicao invalida"<<endl;
 
@@ -100,7 +107,7 @@ void FicharioAluno::cadastrar()
             cin>>res;
             if(res==1)
             {
-                alunos[pos].setMatricula("Apagado");
+                 alunos.erase(alunos.begin()+pos);
             }else
             {
                 cout<<"Exclusao nao efetuada"<<endl;
@@ -115,7 +122,7 @@ void FicharioAluno::cadastrar()
         cout<<"Qual posicao deseja consultar?"<<endl;
         cin>>pos;
 
-        if(pos<0||pos>tamanhoFicharioAlunos)
+        if(pos>alunos.size())
         {
             cout<<"Posicao invalida"<<endl;
 
@@ -131,13 +138,12 @@ void FicharioAluno::cadastrar()
         
         
         
-        for(int pos=0;pos<qtdeAlunosFichario;pos++)
+        for(int pos=0;pos<alunos.size();pos++)
         {
-            if (alunos[pos].getMatricula() != "Apagado")
-            {
+            
             
                 alunos[pos].toString();
-            }
+            
                 
         }
         

@@ -12,6 +12,8 @@ using namespace std;
 
     Aluno::Aluno(string matricula, string cpf, string nome, string telefone, string email)
     {
+      ++indice;
+        this->codigo = indice;
         this->matricula = matricula;
         this->cpf = cpf;
         this->nome = nome;
@@ -36,10 +38,14 @@ using namespace std;
             cout << "Telefone: "<<telefone<<endl;
             cout << "Email: "<<email<<endl;
     }
-    void Aluno::registrar(int codigo)
+    
+    bool Aluno::operator==(const Aluno& o) const {
+      return cpf == o.cpf;
+    }
+    int Aluno::getCodigo()const
     {
-      this->codigo=codigo;
-    };
+      return codigo;
+    }
 
 
 

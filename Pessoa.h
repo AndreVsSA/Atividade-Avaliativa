@@ -4,7 +4,7 @@
 using std::string;
 
 class Pessoa {
-    private:
+    
 
     protected :string nome;
     string cpf;
@@ -22,6 +22,7 @@ class Pessoa {
     void setNome(const string);
     string getCpf()const;
     void setCpf(const string);
+    int getCodigo() const;
 
 };
 #endif

@@ -6,16 +6,18 @@ using std::string;
 
 class Aluno: public Pessoa{
     private:
-        string matricula, cpf, nome, telefone, email;
-    static int index;
+        string matricula;
+    
         int codigo;
     public:
+        static int indice;
+        bool operator==(const Aluno& o) const;
         Aluno();
         Aluno(string, string, string, string, string);
         void setMatricula(const string);
         string getMatricula() const;
         void toString();
-        void registrar(const int);
+        int getCodigo() const;
         
 };
 #endif
