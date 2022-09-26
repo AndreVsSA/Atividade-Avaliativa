@@ -2,6 +2,8 @@
 #define FICHARIOTURMA_H
 #include <iostream>
 #include <string>
+#include <vector>
+using std::vector;
 using std::cout;
 using std::cin;
 using std::endl;
@@ -10,11 +12,9 @@ using std::string;
 
 class FicharioTurma{
 private:
-        Turma * turmas;
-        int tamanhoFicharioTurmas;
-        int qtdeTurmasFichario;
+        vector <Turma> turmas;
 public:
-FicharioTurma(Turma *, int );
+FicharioTurma(vector <Turma>);
 
     void cadastrar();
     void alterar();    

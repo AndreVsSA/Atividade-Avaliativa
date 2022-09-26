@@ -9,9 +9,10 @@ using namespace std;
     
     Turma::Turma(){}
     Turma::Turma(string materia,string periodo,string codigo){
+      ++indice;
       this->materia= materia;
       this->periodo=periodo;
-      this->codigo=codigo;
+      this->codigo=indice;
     }
     string Turma::getMateria()const
     {
@@ -21,7 +22,7 @@ using namespace std;
     {
       return periodo;
     }
-    string Turma::getCodigo()const
+    int Turma::getCodigo()const
     {
       return codigo;
     }
@@ -32,9 +33,6 @@ using namespace std;
     void Turma::setPeriodo(const string periodo)
     {
       this->periodo=periodo;
-    }void Turma::setCodigo(const string codigo)
-    {
-      this->codigo=codigo;
     }
     void Turma::toString(){
             cout << " === TURMA ==== " << endl;

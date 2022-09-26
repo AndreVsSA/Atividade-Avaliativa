@@ -4,12 +4,14 @@ using std::cin;
 using std::endl;
 #include "FicharioTurma.h"
 #include "Turma.h"
+#include <vector>
+#include<bits/stdc++.h>
+using std::vector;
 
 
-FicharioTurma::FicharioTurma(Turma  *turmas, int tamanhoFicharioTurmas){
+FicharioTurma::FicharioTurma(vector <Turma> turmas){
         this->turmas = turmas;
-        this->tamanhoFicharioTurmas = tamanhoFicharioTurmas;
-        this->qtdeTurmasFichario = 0;
+        
   }
 
 void FicharioTurma::cadastrar()
@@ -18,10 +20,6 @@ void FicharioTurma::cadastrar()
     string codigo, periodo, materia;
     
 
-        
-
-        if(qtdeTurmasFichario < tamanhoFicharioTurmas)
-        {
                 cout << " === Cadastrar TURMA ==== " << endl;
                 cout << "\nMateria: ";
                 cin >> materia;
@@ -31,16 +29,15 @@ void FicharioTurma::cadastrar()
                 cin >> codigo;
                 
 
-                Turma Turma(materia, periodo, codigo);
-                turmas[qtdeTurmasFichario] = Turma;
-                qtdeTurmasFichario++;
-                
-                
-
-        }   else 
-            {
-                cout << "Cadastros esgotados!";
-            }
+                Turma turma(materia, periodo, codigo);
+                auto it = find(turmas.begin(), turmas.end(), turma);
+                  if(it != turmas.end())
+                  {
+                      cout << "Aluno já cadastrado!"<< endl;
+                  }else
+                  {
+                      turmas.push_back(turma);
+                  }
 
 }
     void FicharioTurma::alterar()
@@ -52,7 +49,7 @@ void FicharioTurma::cadastrar()
         cout<<"Qual posicao deseja alterar?"<<endl;
         cin>>pos;
 
-        if(pos<0||pos>tamanhoFicharioTurmas)
+        if(turmas[pos].getCodigo()!=0)
         {
             cout<<"Codigo atual: "<<turmas[pos].getCodigo()<<endl;
             cout<<"Digite o novo codigo ";
@@ -84,7 +81,7 @@ void FicharioTurma::cadastrar()
         cin>>pos;
 
         
-        if(pos<0||pos>tamanhoFicharioTurmas)
+        if(pos>turmas.size())
         {
            cout<<"Posicao invalida"<<endl;
 
@@ -95,7 +92,7 @@ void FicharioTurma::cadastrar()
             cin>>res;
             if(res==1)
             {
-                turmas[pos].setCodigo("Apagado");
+                turmas.erase(turmas.begin()+pos);
             }else
             {
                 cout<<"Exclusao nao efetuada"<<endl;
@@ -110,7 +107,7 @@ void FicharioTurma::cadastrar()
         cout<<"Qual posicao deseja consultar?"<<endl;
         cin>>pos;
 
-        if(pos<0||pos>tamanhoFicharioTurmas)
+        if(pos>turmas.size())
         {
             cout<<"Posicao invalida"<<endl;
 
@@ -126,13 +123,9 @@ void FicharioTurma::cadastrar()
         
         
         
-        for(int pos=0;pos<qtdeTurmasFichario;pos++)
+        for(int pos=0;pos<turmas.size();pos++)
         {
-            if (turmas[pos].getCodigo() != "Apagado")
-            {
-            
-                turmas[pos].toString();
-            }
+            turmas[pos].toString();
                 
         }
         

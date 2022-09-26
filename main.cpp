@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-//#include<bits/stdc++.h>
+#include<bits/stdc++.h>
 using std::vector;
 using std::find;
 using std::cout;
@@ -12,17 +12,22 @@ using std::endl;
 #include "FicharioProfessor.h"
 #include "Turma.h"
 #include "FicharioTurma.h"
+#include "Enturmacao.h"
+#include "FicharioEnturmacao.h"
 #define TAM 100
 int Aluno::indice=0;
 int Professor::indice=0;
-
+int Enturmacao::geracode=0;
+int Turma::indice=0;
 int main(){
         vector<Aluno> alunos; 
         vector<Professor> professores;
-        Turma turmas[TAM];
+        vector<Turma> turmas;
+        vector<Enturmacao>enturmacoes;
         FicharioAluno ficharioAluno(alunos);
         FicharioProfessor ficharioProfessor(professores);
-        FicharioTurma ficharioTurma(turmas,TAM);
+        FicharioTurma ficharioTurma(turmas);
+        FicharioEnturmacao ficharioEnturmacao(alunos,turmas,enturmacoes);
     
         int operacaoGeral, opCadastroAluno, opCadastroProfessor, opCadastroTurma, opCadastroEnturmacao;
         do {
@@ -144,7 +149,7 @@ int main(){
                         }
                     } while (opCadastroTurma != 0);
                     break; // fim do case turma
-                /*case 4: // cadastro de enturmação
+                case 4: // cadastro de enturmação
                     do {
                         cout << " === ENTURMACAO === " << endl;
                         cout << "1 - Cadastrar Enturmação " << endl;
@@ -153,7 +158,7 @@ int main(){
                         cout << "5 - Relatório do Enturmação " << endl;
                         cout << "0 - Voltar ao menu principal" << endl;
                         cout << "Opção: ";
-                        cin >> opCadastroEnturmacao;1
+                        cin >> opCadastroEnturmacao;
 
                         switch (opCadastroEnturmacao) {
                             case 1:
@@ -173,9 +178,9 @@ int main(){
                                     cout << "Opção inválida." << endl;
                                 }
                         }
-                    } while (opCadastroEnturmacao != 0 << endl;
+                    } while (opCadastroEnturmacao != 0);
                     break; // fim do case da enturmacao
-                    */
+                    
                 default:
                     if (operacaoGeral != 0) {
                         cout << "Opção inválida." << endl;

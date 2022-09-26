@@ -85,7 +85,7 @@ void FicharioAluno::cadastrar()
         {
             cout<<"Posicao invalida"<<endl;
         }
-    }
+    };
     void FicharioAluno::excluir()
     {
         int pos, res;
