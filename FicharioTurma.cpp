@@ -51,10 +51,7 @@ void FicharioTurma::cadastrar()
 
         if(turmas[pos].getCodigo()!=0)
         {
-            cout<<"Codigo atual: "<<turmas[pos].getCodigo()<<endl;
-            cout<<"Digite o novo codigo ";
-            cin>>codigo;
-            turmas[pos].setCodigo(codigo);
+            
             cout<<"\n\nPeriodo Atual: "<<turmas[pos].getPeriodo()<<endl;
             cout<<"Digite o novo periodo: ";
             cin>>periodo;

@@ -15,6 +15,7 @@ Turma turma;
 
 public:
 static int geracode;
+    bool operator==(const Enturmacao& o) const;
     Enturmacao();
     Enturmacao(Turma , Aluno );
     Aluno getAluno();

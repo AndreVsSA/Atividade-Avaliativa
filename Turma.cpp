@@ -40,6 +40,8 @@ using namespace std;
             cout << "Periodo: "<<periodo<<endl;
             cout << "Codigo: "<<codigo<<endl;
             
+    }bool Turma::operator==(const Turma& o) const {
+      return codigo== o.codigo;
     }
     
 

@@ -25,7 +25,10 @@ Enturmacao::Enturmacao(Turma turma, Aluno aluno) {
         this->turma = turma;
     }
     void Enturmacao::toString(){
-        Aluno::toString;
+        aluno.toString();
         cout<<"\n";
-        Turma::toString;
+        turma.toString();
+    }
+    bool Enturmacao::operator==(const Enturmacao& o) const {
+      return codigo == o.codigo;
     }

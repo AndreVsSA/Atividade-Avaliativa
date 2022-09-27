@@ -35,6 +35,7 @@ void FicharioAluno::cadastrar()
                 cin >> email;
 
                 Aluno aluno(nome, telefone, matricula, cpf, email);
+  
                 auto it = find(alunos.begin(), alunos.end(), aluno);
                   if(it != alunos.end())
                   {

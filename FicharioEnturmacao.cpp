@@ -28,7 +28,7 @@ void FicharioEnturmacao::cadastrar()
 
     Enturmacao enturmacao(turmas[posTurma],alunos[posAluno]);
 
-    auto it = find(enturmacoes.begin(), enturmacoes.end(),enturmacoes);
+    auto it = find(enturmacoes.begin(), enturmacoes.end(),enturmacao);
     if(it != enturmacoes.end())
     {
         cout << "Enturmação já realizada!"<< endl;

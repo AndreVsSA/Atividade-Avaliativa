@@ -23,5 +23,6 @@ public:
     void setPeriodo(const string);
     void setCodigo(const string);
     void toString();
+    bool operator==(const Turma& o) const;
 };
 #endif
